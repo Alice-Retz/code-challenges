@@ -32,3 +32,10 @@ export function makeStrings(arr) {
         }
     })
 }
+
+export function readyToPutInTheDOM(arr) {
+    return arr.map((item) => {
+        const headlines = `<h1>${item.name}</h1><h2>${item.age}</h2>`;
+        return headlines;
+    })
+}
