@@ -1,12 +1,9 @@
 export function capitalizeObjectKeys(obj) {
-    const objUp = Object.keys(obj);
-    return objUp.map(objUp => 
-        objUp.toUpperCase());
+    return Object.keys(obj).map(obj => obj.toUpperCase());
 }
 
 export function sortedKeys(obj) {
-    const objSort = Object.keys(obj);
-    return objSort.sort((a, b) => a.length - b.length);
+    return Object.keys(obj).sort((a, b) => a.length - b.length);
 
 };
 
@@ -16,11 +13,9 @@ export function getFilteredKey(obj) {
 };
 
 export function getArrayOfKeysAndValues(obj) {
-    const objArr = Object.entries(obj);
-    return objArr;
+    return Object.entries(obj);
 };
 
 export function sortedArraysByValuesLength(obj) {
-    const objSort = Object.entries(obj);
-    return objSort.sort((a, b) => b[1].length - a[1].length);
+    return Object.entries(obj).sort((a, b) => b[1].length - a[1].length);
 };
