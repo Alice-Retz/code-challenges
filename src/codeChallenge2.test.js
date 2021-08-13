@@ -1,4 +1,11 @@
-import { evensOnly, fiveCharactersOrFewerOnly, peopleWhoBelongToTheIlluminati, ofAge, leastToGreatest, greatestToLeast, lengthSort, alphabetical, byAge } from './codeChallenge2.js';
+import { fiveAndGreaterOnly, evensOnly, fiveCharactersOrFewerOnly, peopleWhoBelongToTheIlluminati, ofAge, leastToGreatest, greatestToLeast, lengthSort, alphabetical, byAge } from './codeChallenge2.js';
+
+
+test('Five and greater only', () => {
+  const input = [3, 6, 8, 2]; // arrange
+  const output = fiveAndGreaterOnly(input); // act
+  expect(output).toEqual([6, 8]); // assert
+});
 
 test('return even numbers only', () => {
   const input = [3, 6, 8, 2]; // arrange
