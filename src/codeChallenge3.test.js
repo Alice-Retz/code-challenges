@@ -1,4 +1,4 @@
-import { capitalizeObjectKeys, sortedKeys, getFilteredKey, getArrayOfKeysAndValues } from './codeChallenge3.js';
+import { capitalizeObjectKeys, sortedKeys, getFilteredKey, getArrayOfKeysAndValues, sortedArraysByValuesLength } from './codeChallenge3.js';
 
 test('it capitalizes the keys', () => {
   const dataObject = { name: 'Angelina Jolie', age: 80 }; //arrange
@@ -24,4 +24,10 @@ test('it filters the keys array', () => {
   const dataObject = { name: 'Angelina Jolie', age: 80 }; //arrange
   const output = getArrayOfKeysAndValues(dataObject); //act
   expect(output).toEqual([['name', 'Angelina Jolie'], ['age', 80]]); //assert
+});
+
+test('it filters the keys array', () => {
+  const dataObject = { name: 'Bob', friend: 'Tom Hanks', location: 'Los Angeles' }; //arrange
+  const output = sortedArraysByValuesLength(dataObject); //act
+  expect(output).toEqual([['location', 'Los Angeles'], ['friend', 'Tom Hanks'], ['name', 'Bob']]); //assert
 });
