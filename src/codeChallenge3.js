@@ -17,6 +17,7 @@ export function getFilteredKey(obj) {
 
 export function getArrayOfKeysAndValues(obj) {
     const objArr = Object.keys(obj);
+    return objArr.
 };
 
 export function sortedArraysByValuesLength(obj) {
