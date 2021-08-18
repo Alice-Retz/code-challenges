@@ -1,8 +1,6 @@
-import { getHouses, updateNumbers, totalCharacters } from './codeChallenge4.js';
+import { getHouses, updateNumbers, totalCharacters, hasChildrenEntries, sortByChildren } from './codeChallenge4.js';
 
-
-test('it gets the names of the houses', () => {
-  const characters = [
+const characters = [
     {
       name: 'Eddard',
       spouse: 'Catelyn',
@@ -45,7 +43,10 @@ test('it gets the names of the houses', () => {
       children: [],
       house: 'Snow'
     }
-  ]; //arrange
+  ];
+
+
+test('it gets the names of the houses', () => {
   const output = getHouses(characters); //act
   expect(output).toEqual(['Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Greyjoy', 'Snow']); //assert
 });
@@ -61,50 +62,21 @@ test('it transforms value pairs to strings', () => {
 
 
 test('it counts the number of characters', () => {
-    const characters = [
-        {
-          name: 'Eddard',
-          spouse: 'Catelyn',
-          children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'],
-          house: 'Stark'
-        },
-        {
-          name: 'Jon A.',
-          spouse: 'Lysa',
-          children: ['Robin'],
-          house: 'Arryn'
-        },
-        {
-          name: 'Cersei',
-          spouse: 'Robert',
-          children: ['Joffrey', 'Myrcella', 'Tommen'],
-          house: 'Lannister'
-        },
-        {
-          name: 'Daenarys',
-          spouse: 'Khal Drogo',
-          children: ['Drogon', 'Rhaegal', 'Viserion'],
-          house: 'Targaryen'
-        },
-        {
-          name: 'Mace',
-          spouse: 'Alerie',
-          children: ['Margaery', 'Loras'],
-          house: 'Tyrell'
-        },
-        {
-          name: 'Euron',
-          spouse: null,
-          children: [],
-          house: 'Greyjoy'
-        },
-        {
-          name: 'Jon S.',
-          spouse: null,
-          children: [],
-          house: 'Snow'
-        } //arrange
-    ];
-  const output = totalCharacters(characters); //act
-  expect(output).toEqual(26); //assert
+    const output = totalCharacters(characters); //act
+    expect(output).toEqual(26); //assert
 });
+
+test('it returns true or false', () => {
+  
+    const output = hasChildrenEntries(characters, 'Eddard');
+    expect(output).toEqual(true);
+    const output2 = hasChildrenEntries(characters, 'Euron');
+    expect(output2).toEqual(false);
+    
+  });
+
+  test('it sorts by least to most children', () => {
+    const output = sortByChildren(characters); //act
+    expect(output).toEqual([ {name: 'Euron', spouse: null, children: [], house: 'Greyjoy'}, { name: 'Jon S.', spouse: null, children: [],house: 'Snow'}, {name: 'Jon A.', spouse: 'Lysa', children: ['Robin'], house: 'Arryn'}, {name: 'Mace', spouse: 'Alerie', children: ['Margaery', 'Loras'], house: 'Tyrell'}, { name: 'Cersei',spouse: 'Robert', children: ['Joffrey', 'Myrcella', 'Tommen'], house: 'Lannister'}, {name: 'Daenarys', spouse: 'Khal Drogo', children: ['Drogon', 'Rhaegal', 'Viserion'], house: 'Targaryen'}, {name: 'Eddard', spouse: 'Catelyn', children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'], house: 'Stark'}]); //assert
+  });
+  

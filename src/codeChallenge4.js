@@ -3,7 +3,7 @@ export function getHouses(obj) {
 }
 
 export function updateNumbers(obj) {
-    return Object.entries(obj).map(arr => arr[0] + ": " + arr[1]);
+    return Object.entries(obj).map(obj => obj[0] + ": " + obj[1]);
 }
 
 export function totalCharacters(arr) {
@@ -16,3 +16,17 @@ export function totalCharacters(arr) {
     });
     return count;
 }
+
+export function hasChildrenEntries(arr, character) {
+    let statement = false;
+    const matching = arr.find(obj => obj.name === character);
+
+    if (matching.children[0] !== undefined) {
+        statement = true;
+    }
+    return statement;
+} 
+
+export function sortByChildren(arr){
+    return arr.sort((a, b) => a.children.length - b.children.length);
+} 
