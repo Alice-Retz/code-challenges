@@ -17,5 +17,5 @@ export function grandTotal(stores){
 }
 
 export function salesData(hours, data){
-  
+//   'This is taking the information above and just formatting it nicely, I'd use template literals'
 }
